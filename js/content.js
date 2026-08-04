@@ -42,7 +42,7 @@ const tripPosts = [
       text: "We closed out the day at It's in the Sauce BBQ in Oxnard, a first-time stop that did not disappoint. Days like this aren't really about the miles — they're about the community, the friends along for the ride, and the food waiting at the end of it."
     }
   ]
-}
+},
   {
     id: "big-sur-weekend",
     type: "trip",
