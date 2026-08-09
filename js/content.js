@@ -1,66 +1,189 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About | Daniel Gonzalez</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css" />
-</head>
-<body data-page="about">
+const siteConfig = {
+  siteName: "Daniel Gonzalez | Moto + Tech Blog",
+  imageGuidelines: {
+    standard: "Use 1600x900 images for cover photos (16:9). Minimum 1200x675."
+  }
+};
 
-  <a class="visually-hidden-focusable" href="#main-content">Skip to main content</a>
+const tripPosts = [
+  {
+  id: "bsm-group-ride-hollywood-oxnard",
+  type: "trip",
+  featured: true,
+  title: "A Perfect Weekend: Bikes, Brews, and BBQ",
+  date: "2026-01-12",
+  location: "Hollywood to Oxnard, CA",
+  summary: "A 100+ bike group ride with Beach Side Moto from Hollywood through Beverly Hills and Glendale, down PCH, and capped off with BBQ in Oxnard.",
+  cover: "assets/trips/bsm-group-ride-hollywood-oxnard-cover.jpg",
+  coverAlt: "Large group of motorcycles gathered in a parking lot before the Beach Side Moto group ride",
+  tags: ["Group Ride", "PCH", "Brewery Stop"],
+  details: {
+    bike: "Your Motorcycle Model",
+    distance: "Add total mileage",
+    duration: "1 day"
+  },
+  media: [
+    { type: "image", src: "assets/trips/bsm-group-ride-hollywood-oxnard-cover.jpg", alt: "Large group of motorcycles gathered for the Beach Side Moto ride" }
+  ],
+  sections: [
+    {
+      heading: "Kickstands Up in Hollywood",
+      text: "It all started at Thunder Road Cafe in Hollywood with a 10:30AM KSU. I joined the Beach Side Moto Group's monthly ride with two good friends, and my girlfriend riding 2-up. The turnout was massive — well over 100 bikes — and the energy in the parking lot before we rolled out was electric."
+    },
+    {
+      heading: "Beverly Hills to Glendale",
+      text: "Once the pack got moving, we thundered through Beverly Hills on our way to Glendale for a stop at Brew Yard brewery. Watching that many bikes roll together was a reminder of just how strong the riding community is. We hung out, grabbed tacos, and swapped stories with other riders before saddling back up."
+    },
+    {
+      heading: "The Scenic Way Home",
+      text: "For the ride back we skipped the freeway and took Las Virgenes Road down to PCH. Cruising the coastline with the ocean breeze — windy as it was — was the perfect way to decompress after the energy of the big group ride."
+    },
+    {
+      heading: "BBQ in Oxnard",
+      text: "We closed out the day at It's in the Sauce BBQ in Oxnard, a first-time stop that did not disappoint. Days like this aren't really about the miles — they're about the community, the friends along for the ride, and the food waiting at the end of it."
+    }
+  ]
+},
+  {
+    id: "big-sur-weekend",
+    type: "trip",
+    featured: true,
+    title: "Weekend Ride to Big Sur",
+    date: "2026-05-10",
+    location: "California Coast",
+    summary: "A scenic coastal weekend ride with ocean views, cool morning weather, and a few unforgettable stops.",
+    cover: "assets/trips/big-sur-cover.jpg",
+    coverAlt: "Motorcycle parked near a scenic coastal overlook on the Big Sur coastline",
+    tags: ["Scenic Route", "Coastal Ride", "Weekend Trip"],
+    details: {
+      bike: "Your Motorcycle Model",
+      distance: "312 miles",
+      duration: "2 days"
+    },
+    media: [
+      { type: "image", src: "assets/trips/big-sur-cover.jpg", alt: "Motorcycle parked near a scenic coastal overlook" }
+    ],
+    sections: [
+      {
+        heading: "Route Overview",
+        text: "This trip focused on a clean coastal route with scenic stops, manageable mileage, and enough flexibility to take photos along the way."
+      },
+      {
+        heading: "Ride Notes",
+        text: "Morning temperatures were cool and visibility was excellent. The road conditions were mostly great, but a few sections required slower riding and extra attention."
+      },
+      {
+        heading: "What I Learned",
+        text: "For longer scenic rides, lightweight packing and quick-access camera gear make a huge difference. Planning fuel stops in advance also helps keep the day smooth."
+      }
+    ]
+  },
+  {
+    id: "desert-run",
+    type: "trip",
+    featured: true,
+    title: "Early Morning Desert Run",
+    date: "2026-04-02",
+    location: "Southern California",
+    summary: "An early start, clear skies, open roads, and a test of endurance riding in dry conditions.",
+    cover: "assets/trips/desert-run-cover.jpg",
+    coverAlt: "Motorcycle on an open desert highway at sunrise",
+    tags: ["Sunrise Ride", "Desert", "Day Trip"],
+    details: {
+      bike: "Your Motorcycle Model",
+      distance: "220 miles",
+      duration: "1 day"
+    },
+    media: [
+      { type: "image", src: "assets/trips/desert-run-cover.jpg", alt: "Motorcycle in a desert highway landscape" }
+    ],
+    sections: [
+      {
+        heading: "Why This Ride",
+        text: "This was a shorter but focused ride meant to test comfort, pacing, and gear choices for longer solo trips."
+      },
+      {
+        heading: "Conditions",
+        text: "Cool early temperatures gave way to dry midday heat. Keeping hydrated and layering correctly made the ride much more comfortable."
+      },
+      {
+        heading: "Takeaways",
+        text: "The route worked well for a quick reset ride. I’d bring more water, use lighter gloves for later hours, and plan one additional scenic stop next time."
+      }
+    ]
+  }
+];
 
-  <nav class="navbar navbar-expand-lg navbar-dark sticky-top site-nav">
-    <div class="container">
-      <a class="navbar-brand fw-bold" href="index.html">Moto + Tech</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
-        aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="mainNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="trips.html">Motorcycle Trips</a></li>
-          <li class="nav-item"><a class="nav-link" href="projects.html">Home Tech Projects</a></li>
-          <li class="nav-item"><a class="nav-link active" href="about.html">About</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <header class="page-header">
-    <div class="container">
-      <p class="section-kicker">About Me</p>
-      <h1 class="display-6 fw-bold">A little about me</h1>
-      <p class="lead text-light-emphasis">
-        I document motorcycle rides and personal technical builds to share what I’m learning and building.
-      </p>
-    </div>
-  </header>
-
-  <main id="main-content" class="py-5">
-    <div class="container">
-      <div class="row g-4 align-items-start">
-        <div class="col-lg-4">
-          <div class="glass-card p-4 text-center">
-            <img src="assets/headshot.jpg" alt="Headshot of Daniel Gonzalez" class="about-headshot mb-3" />
-            <h3 class="fw-bold mb-1">Daniel Gonzalez</h3>
-            <p class="text-secondary mb-0">Tech builder • Rider • Lifelong learner</p>
-          </div>
-        </div>
-        <div class="col-lg-8">
-          <div class="glass-card p-4 p-md-5">
-            <h2 class="fw-bold">Why this site exists</h2>
-            <p>
-              This site is where I document two things I genuinely enjoy:
-              motorcycle travel and personal technology projects at home.
-            </p>
-            <p>
-              The goal is simple: share what I’m learning, show how I approach projects,
-              and give future employers, collaborators, and fellow enthusiasts a clear view
-              into my interests, problem-solving style, and technical curiosity.
-            </p>
+const techPosts = [
+  {
+    id: "homelab-dashboard",
+    type: "project",
+    featured: true,
+    title: "Building a Home Lab Dashboard",
+    date: "2026-05-25",
+    location: "At Home",
+    summary: "A personal dashboard to organize systems, services, and quick links across my home lab environment.",
+    cover: "assets/projects/homelab-dashboard.jpg",
+    coverAlt: "Screenshot of a personal home lab dashboard showing grouped services and links",
+    tags: ["Home Lab", "Dashboard", "Documentation"],
+    details: {
+      stack: "HTML, CSS, JavaScript",
+      difficulty: "Intermediate",
+      status: "In Progress"
+    },
+    media: [
+      { type: "image", src: "assets/projects/homelab-dashboard.jpg", alt: "Screenshot of a personal home lab dashboard" }
+    ],
+    sections: [
+      {
+        heading: "Project Goal",
+        text: "The goal was to create a single view for services, devices, and bookmarks so I could navigate my home environment more efficiently."
+      },
+      {
+        heading: "Approach",
+        text: "I started with a simple front-end structure, grouped systems by category, and focused on clarity over complexity."
+      },
+      {
+        heading: "Lessons Learned",
+        text: "Even a small internal tool benefits from a clean UI, naming conventions, and a visible status structure."
+      }
+    ]
+  },
+  {
+    id: "smart-garage-monitor",
+    type: "project",
+    featured: true,
+    title: "Smart Garage Status Monitor",
+    date: "2026-03-18",
+    location: "At Home",
+    summary: "A simple project to monitor garage open/close status and create a better at-a-glance check from home.",
+    cover: "assets/projects/smart-garage.jpg",
+    coverAlt: "Smart garage monitoring project showing a sensor and status dashboard interface",
+    tags: ["Automation", "DIY", "Monitoring"],
+    details: {
+      stack: "JavaScript, Sensors, Home Automation",
+      difficulty: "Intermediate",
+      status: "Completed"
+    },
+    media: [
+      { type: "image", src: "assets/projects/smart-garage.jpg", alt: "Smart garage project with sensor and monitoring interface" }
+    ],
+    sections: [
+      {
+        heading: "Problem",
+        text: "I wanted a simple way to confirm status without guessing or manually checking the door."
+      },
+      {
+        heading: "Build Process",
+        text: "The build focused on clear status feedback, simple wiring, and a readable dashboard view."
+      },
+      {
+        heading: "Result",
+        text: "The final setup made it easier to verify status quickly and gave me a useful small-scale automation project to document."
+      }
+    ]
+  }
+];
 
             <hr class="my-4" />
 
