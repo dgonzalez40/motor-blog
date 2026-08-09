@@ -28,12 +28,13 @@ function createMetaPills(post) {
 
 function renderPostCard(post) {
   const tags = post.tags.map(tag => `<span class="tag-chip">${tag}</span>`).join("");
+  const coverAlt = post.coverAlt || post.title;
 
   return `
     <div class="col-md-6 col-xl-4">
       <article class="post-card">
         <div class="media-frame">
-          ${post.cover}
+          <img src="${post.cover}" alt="${coverAlt}" loading="lazy">
         </div>
         <div class="post-card-body">
           <div class="post-card-meta mb-3">
@@ -51,7 +52,8 @@ function renderPostCard(post) {
           <button
             class="btn btn-primary"
             data-post-id="${post.id}"
-            data-post-type="${post.type}">
+            data-post-type="${post.type}"
+            aria-label="Read more about ${post.title}">
             Read More
           </button>
         </div>
@@ -91,7 +93,8 @@ function renderModalMedia(media = []) {
           return `
             <div class="media-frame">
               <video controls ${item.poster ? `poster="${item.poster}"` : ""}>
-                ${item.src}
+                <source src="${item.src}" type="video/mp4">
+                ${item.captions ? `<track kind="captions" src="${item.captions}" srclang="en" label="English" default>` : ""}
                 Your browser does not support the video tag.
               </video>
             </div>
@@ -100,7 +103,7 @@ function renderModalMedia(media = []) {
 
         return `
           <div class="media-frame">
-            ${item.src}
+            <img src="${item.src}" alt="${item.alt || ""}" loading="lazy">
           </div>
         `;
       }).join("")}
