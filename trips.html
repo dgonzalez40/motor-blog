@@ -9,10 +9,13 @@
 </head>
 <body data-page="trips">
 
+  <a class="visually-hidden-focusable" href="#main-content">Skip to main content</a>
+
   <nav class="navbar navbar-expand-lg navbar-dark sticky-top site-nav">
     <div class="container">
       <a class="navbar-brand fw-bold" href="index.html">Moto + Tech</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+        aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="mainNav">
@@ -36,7 +39,7 @@
     </div>
   </header>
 
-  <main class="py-5">
+  <main id="main-content" class="py-5">
     <div class="container">
       <div class="row g-4" id="tripList"></div>
     </div>
@@ -48,7 +51,7 @@
     </div>
   </footer>
 
-  <div class="modal fade" id="postModal" tabindex="-1" aria-hidden="true">
+  <div class="modal fade" id="postModal" tabindex="-1" aria-hidden="true" aria-labelledby="modalTitle">
     <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
       <div class="modal-content modal-dark">
         <div class="modal-header border-secondary">
@@ -56,7 +59,7 @@
             <p class="section-kicker mb-1" id="modalType">Trip</p>
             <h3 class="modal-title" id="modalTitle">Post Title</h3>
           </div>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <div id="modalMeta" class="mb-3 post-meta"></div>
