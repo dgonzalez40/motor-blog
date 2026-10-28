@@ -215,3 +215,39 @@ body {
     height: 140px;
   }
 }
+/* Shared accessible presentation for both kinds of story. */
+:focus-visible {
+  outline: 3px solid #ffda6a;
+  outline-offset: 4px;
+}
+
+.visually-hidden-focusable:focus {
+  position: fixed;
+  top: .5rem;
+  left: .5rem;
+  z-index: 1100;
+  padding: .75rem 1rem;
+  background: #fff;
+  color: #0b1020;
+}
+
+#main-content { scroll-margin-top: 5rem; }
+body { overflow-wrap: anywhere; }
+.text-secondary { color: var(--muted) !important; }
+.btn-primary { background: #245bcc; color: #fff; }
+.btn-primary:hover, .btn-primary:focus-visible { background: #1d4eaf; color: #fff; }
+.btn-outline-primary { color: #9ec5fe; border-color: #9ec5fe; }
+.btn-outline-primary:hover { background: #245bcc; border-color: #245bcc; color: #fff; }
+.post-reader { max-width: 900px; }
+.post-reader p { line-height: 1.8; }
+.post-image { display: block; width: 100%; height: auto; border-radius: 1rem; }
+.post-media { display: grid; gap: 1rem; }
+.post-details { display: flex; flex-wrap: wrap; gap: 1rem 2rem; }
+.post-details dd { color: var(--muted); }
+.content-section h2 { font-weight: 700; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+  .post-card:hover { transform: none; }
+}
